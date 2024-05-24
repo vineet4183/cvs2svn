@@ -2,6 +2,12 @@
 
 :exclamation: **This fork provides a working Docker setup as of May 2024. No other internals have been or will be touched.** :exclamation:
 
+:point_right: **[Docker documentation](Docker.md) is here** :point_left:
+
+---------
+
+Other than that:
+
 :warning: cvs2svn is now in maintenance mode and is not actively being
 developed. :warning:
 
