@@ -1,5 +1,7 @@
 # cvs2svn - CVS to Subversion Repository Converter
 
+:exclamation: **This fork provides a working Docker setup as of May 2024. No other internals have been or will be touched.** :exclamation:
+
 :warning: cvs2svn is now in maintenance mode and is not actively being
 developed. :warning:
 
