@@ -40,6 +40,12 @@ VOLUME ["/tmp"]
 
 ENTRYPOINT ["cvs2svn"]
 
+
+# cvs2git variant: just use cvs2git tool as entrypoint
+FROM run AS cvs2git
+ENTRYPOINT ["cvs2git"]
+
+
 FROM run AS test
 
 RUN ln -s /tmp cvs2svn-tmp
