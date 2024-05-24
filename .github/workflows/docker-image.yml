@@ -9,10 +9,10 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
+    - name: Build the cvs2git Docker image
       run: docker build . --file Dockerfile --target=cvs2git --tag cvs2git:$(date +%s)
+    - name: Build the cvs2svn Docker image
+      run: docker build . --file Dockerfile --target=run --tag cvs2gsvn:$(date +%s)
