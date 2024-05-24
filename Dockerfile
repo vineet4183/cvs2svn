@@ -17,8 +17,10 @@
 
 FROM debian:jessie AS run
 
+COPY debian-jessie_archive-sources.list /etc/apt/sources.list 
+
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install -y --force-yes \
         python \
         python-bsddb3 \
         subversion \
