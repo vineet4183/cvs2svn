@@ -17,8 +17,10 @@
 
 FROM debian:jessie AS run
 
+COPY debian-jessie_archive-sources.list /etc/apt/sources.list 
+
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install -y --force-yes \
         python \
         python-bsddb3 \
         subversion \
@@ -37,6 +39,12 @@ VOLUME ["/cvs"]
 VOLUME ["/tmp"]
 
 ENTRYPOINT ["cvs2svn"]
+
+
+# cvs2git variant: just use cvs2git tool as entrypoint
+FROM run AS cvs2git
+ENTRYPOINT ["cvs2git"]
+
 
 FROM run AS test
 
