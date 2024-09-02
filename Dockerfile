@@ -15,17 +15,14 @@
 # to make an image for testing cvs2svn and to run those tests using
 # the image.
 
-FROM debian:jessie AS run
+FROM prosyslab/bug-bench-cvs2svn AS run
 
-RUN apt-get update && \
-    apt-get install -y \
-        python \
-        python-bsddb3 \
-        subversion \
-        rcs \
-        cvs
+RUN apt-get update
+RUN apt-get install -y python2 cvs subversion rcs
+ENV PYTHON=python2
+ENV python=python2
 
-RUN mkdir /src
+# RUN pip install distutils.core 
 WORKDIR /src
 COPY . .
 RUN ${PYTHON} ./setup.py install
@@ -36,10 +33,11 @@ VOLUME ["/cvs"]
 # A volume for storing temporary files can be mounted here:
 VOLUME ["/tmp"]
 
-ENTRYPOINT ["cvs2svn"]
+#ENTRYPOINT ["cvs2svn"]
 
 FROM run AS test
 
+
 RUN ln -s /tmp cvs2svn-tmp
 
-ENTRYPOINT ["./run-tests.py"]
+#ENTRYPOINT ["./run-tests.py"]
